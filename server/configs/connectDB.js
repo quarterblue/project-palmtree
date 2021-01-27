@@ -5,10 +5,10 @@ dotenv.config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.mongURI, {
-      useNewUrlParser,
-      useCreateIndex,
-      useUnifiedTopology,
+    await mongoose.connect(process.env.mongoURI, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
     });
   } catch (err) {
     console.log(err.message);

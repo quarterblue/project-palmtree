@@ -3,8 +3,13 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const companyinfo = require('./seeds/companyinfo');
+const connectDB = require('./configs/connectDB');
 
 dotenv.config();
+
+connectedDB();
+
+const db = mongoose.connection;
 
 const app = express();
 
@@ -16,6 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/v1/stocks/:symbol', (req, res) => {
+  const stockSymbol = req.params.symbol;
   res.send({
     type: 'API END POINT',
     stock: req.params.symbol,
