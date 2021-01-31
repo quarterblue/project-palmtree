@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import './index.css';
 
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import SearchInput from './SearchInput.js';
 
 const theme = createMuiTheme({
   typography: {
@@ -19,14 +20,23 @@ function Title() {
             <div id="title">
                 <Typography id="title">
                     Palmtree
-                </Typography>  
+                </Typography>
             </div>
         </ThemeProvider>
 
     );
 }
 
+function App() {
+  return (
+    <div>
+      <Title/>
+      <SearchInput/>
+    </div>
+  )
+}
+
 ReactDOM.render(
-    <Title/>,
-    document.getElementById('root')
+      <App/>,
+      document.getElementById('root'),
   );
